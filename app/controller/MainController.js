@@ -40,6 +40,7 @@ Ext.define('eBook.controller.MainController', {
 			type : 'slide',
 			direction : 'left'
 		});
+		this.getBackBtn().setHidden(false);
 	},
 
 	onBackBtn:function(){
@@ -57,6 +58,7 @@ Ext.define('eBook.controller.MainController', {
 					direction : 'right'
 				});
 				Ext.getCmp('toptoolbar').setTitle('E - Book');
+				me.getBackBtn().setHidden(true);
 			break;
 
 			case "showBook":

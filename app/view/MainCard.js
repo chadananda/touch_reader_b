@@ -17,7 +17,7 @@ Ext.define('eBook.view.MainCard', {
 				action : 'backBtn'
 			}]
 		},{
-			xtype:'menu'
+			xtype:'showBook'
 		}]
 	}
 });

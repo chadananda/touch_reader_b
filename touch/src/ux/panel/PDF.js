@@ -304,8 +304,8 @@ Ext.define('Ext.ux.panel.PDF', {
         var me = this, isEmpty;
         
         isEmpty = me.pdfDoc.numPages === 0;
-        me.currentPage = me.currentPage || (isEmpty ? 0 : 1);
-        
+        //me.currentPage = me.currentPage || (isEmpty ? 0 : 1);
+        me.currentPage = 1;
         me.renderPage(me.currentPage, function(){
             me.isLoading = false;
             me.fireEvent('load', me, el, e);
