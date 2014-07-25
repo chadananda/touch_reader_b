@@ -18,7 +18,7 @@ Ext.application({
     ],
 
    views: [
-        'Ext.ux.panel.PDF','ReadBook','ShowBook','MainCard','Menu'
+         'Ext.ux.panel.PDF','ReadBook','Showbook','MainCard','Setting'
     ],
     controllers: [
         'MainController',

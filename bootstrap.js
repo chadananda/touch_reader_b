@@ -17,7 +17,8 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
   "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js",
-  "eBook": "app"
+  "eBook": "app",
+  "eBook.view.Showbook": "app/view/ShowBook.js"
 });
 Ext.ClassManager.addNameAlternateMappings({
   "Ext.AbstractComponent": [],
@@ -747,7 +748,9 @@ Ext.ClassManager.addNameAlternateMappings({
   "eBook.view.MainCard": [],
   "eBook.view.Menu": [],
   "eBook.view.ReadBook": [],
-  "eBook.view.ShowBook": []
+  "eBook.view.Recentbook": [],
+  "eBook.view.Setting": [],
+  "eBook.view.Showbook": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1690,17 +1693,20 @@ Ext.ClassManager.addNameAliasMappings({
   "eBook.controller.MainController": [],
   "eBook.model.ShowBookData": [],
   "eBook.store.ShowBookData": [],
-  "eBook.view.MainCard": [
-    "widget.MainCard",
-    "widget.mainCard"
-  ],
+  "eBook.view.MainCard": [],
   "eBook.view.Menu": [
     "widget.menu"
   ],
   "eBook.view.ReadBook": [
     "widget.readBook"
   ],
-  "eBook.view.ShowBook": [
-    "widget.showBook"
+  "eBook.view.Recentbook": [
+    "widget.recentbook"
+  ],
+  "eBook.view.Setting": [
+    "widget.setting"
+  ],
+  "eBook.view.Showbook": [
+    "widget.showbook"
   ]
 });

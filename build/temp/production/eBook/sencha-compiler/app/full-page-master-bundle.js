@@ -1,2 +1,2 @@
 // @tag full-page
-// @require /opt/lampp/htdocs/eBook/app.js
+// @require C:\Users\Gaurav\touch_reader_b\app.js

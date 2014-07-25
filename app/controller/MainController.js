@@ -1,111 +1,149 @@
 Ext.define('eBook.controller.MainController', {
-	extend : 'Ext.app.Controller',
-	config : {
-		refs : {
-			mainCard:'mainCard',
-			backBtn:'mainCard>toolbar>button[action=backBtn]',
-			showBookList : 'showBook>list[name=showBookList]',
-			library_Btn:'menu>panel>panel>button[action=library_Btn]',
-			studyprojectsBtn:'menu>panel>panel>button[action=studyprojectsBtn]',
-			userSettingsBtn:'menu>panel>panel>button[action=userSettingsBtn]'
+    extend: 'Ext.app.Controller',
 
-		},
-		control : {
-			showBookList : {
-				itemtap : 'onShowBookList'
-			},
-			backBtn:{
-				tap:'onBackBtn'
-			},
-			library_Btn:{
-				tap:'onlibrary_Btn'
-			},
-			studyprojectsBtn:{
-				tap:'onStudyprojectsBtn'
-			},
-			userSettingsBtn:{
-				tap:'onUserSettingsBtn'
-			}
-		}
-	},
-	onShowBookList:function(fields, index, target, record, e, eOpts){
-		
-		
-		if(!this.readBook) {
-			this.readBook = Ext.widget('readBook');
-		}
-		Ext.getCmp('pdfReaders').setSrc(record.data.bookSrc);
+    requires: [
+        'Ext.MessageBox'
+    ],
 
-		this.getMainCard().animateActiveItem(this.readBook, {
-			type : 'slide',
-			direction : 'left'
-		});
-		this.getBackBtn().setHidden(false);
-	},
+    config: {
+        refs: {
+            booklist: 'dataview#booklist',
+            btnbrandingicon: 'button#btnbrandingicon',
+            btnlibrary: 'button#btnlibrary',
+            btnmenu: 'button#btnmenu',
+            btnrecent: 'button#btnrecent',
+            btnsearch: 'button#btnsearch',
+            btnsetting: 'button#btnsetting',
+            btnchat: 'button#btnchat',
+            btnmessage: 'button#btnmessage',
+            recentbook: 'panel#mypanel',
+            recentbooklist: 'dataview#recentbooklist',
+            setting: 'panel#settingpanel',
+            btndecrease: 'button#btndecrease',
+            btndinrease: 'button#btndinrease',
+            btncolor1: 'button#btncolor1',
+            btncolor2: 'button#btncolor2',
+            btncolor3: 'button#btncolor3',
+            showBookPnl: 'showbook'
+        },
 
-	onBackBtn:function(){
-		
-		var me = this;
-		var itId = me.getMainCard().getActiveItem().getItemId();
-		itId = itId.split('-');
-		switch(itId[1]) {
-			case "readBook":
-				if(!me.showBook) {
-					me.showBook = Ext.widget('showBook');
-				}
-				me.getMainCard().animateActiveItem(me.showBook, {
-					type : 'slide',
-					direction : 'right'
-				});
-				Ext.getCmp('toptoolbar').setTitle('E - Book');
-				me.getBackBtn().setHidden(true);
-			break;
+        control: {
+            "recentbooklist": {
+                itemtap: 'onRecentBookListItemTap'
+            },
+            "btnlibrary": {
+                tap: 'onLibraryButtonTap'
+            },
+            "btnmenu": {
+                tap: 'onMenuButtonTap'
+            },
+            "btnrecent": {
+                tap: 'onRecentBookButtonTap'
+            },
+            "btnsearch": {
+                tap: 'onSearchButtonTap'
+            },
+            "btnsetting": {
+                tap: 'onSettingButtonTap'
+            },
+            "btnchat": {
+                tap: 'onChatButtonTap'
+            },
+            "btnmessage": {
+                tap: 'onMessageButtonTap'
+            },
+            "btndecrease": {
+                tap: 'OndecreseButtonTap'
+            },
+            "btndinrease": {
+                tap: 'onIncreaseButtonTap'
+            },
+            "btncolor1": {
+                tap: 'onColor1ButtonTap'
+            },
+            "btncolor2": {
+                tap: 'onColor2ButtonTap'
+            },
+            "btncolor3": {
+                tap: 'onColor3ButtonTap'
+            }
+        }
+    },
 
-			case "showBook":
-				if(!me.menu) {
-					me.menu = Ext.widget('menu');
-				}
-				me.getMainCard().animateActiveItem(me.menu, {
-					type : 'slide',
-					direction : 'right'
-				});
-				me.getBackBtn().setHidden(true);
-				Ext.getCmp('toptoolbar').setTitle('E - Book');
-				
-			break;
+    onRecentBookListItemTap: function(dataview, index, target, record, e, eOpts) {
+        var dis=this.getBtnrecent();
+        if(record.data.id==1){
+            dis.setHtml(record.data.name+","+record.data.writer);
+        }else if(record.data.id==2){
+          dis.setHtml(record.data.name+","+record.data.writer);
+        }
+        else  if(record.data.id==3){
+          dis.setHtml(record.data.name+","+record.data.writer);
+        }
+        else if(record.data.id==4){
+          dis.setHtml(record.data.name+","+record.data.writer);
+        }
+        this.getRecentbook().setHidden(true);
+    },
 
-			default:
-				if(!me.menu) {
-					me.menu = Ext.widget('menu');
-				}
-				me.getMainCard().animateActiveItem(me.menu, {
-					type : 'slide',
-					direction : 'right'
-				});
-				me.getBackBtn().setHidden(true);
-				Ext.getCmp('toptoolbar').setTitle('E - Book');
+    onLibraryButtonTap: function(button, e, eOpts) {
 
-		}
-	},
+    },
 
-	onlibrary_Btn:function(){
-		if(!this.showBook) {
-			this.showBook = Ext.widget('showBook');
-		}
-		this.getMainCard().animateActiveItem(this.showBook, {
-			type : 'slide',
-			direction : 'left'
-		});
-		Ext.getCmp('toptoolbar').setTitle('E - Book');
-		this.getBackBtn().setHidden(false);
-	},
+    onMenuButtonTap: function(button, e, eOpts) {
 
-	onStudyprojectsBtn:function(){
-		Ext.Msg.alert('info','Work under process');
-	},
+    },
 
-	onUserSettingsBtn:function(){
-		Ext.Msg.alert('info','Work under process');
-	}
+    onRecentBookButtonTap: function(button, e, eOpts) {
+        debugger;
+        this.getRecentbook().showBy(button);
+    },
+
+    onSearchButtonTap: function(button, e, eOpts) {
+
+    },
+
+    onSettingButtonTap: function(button, e, eOpts) {
+        this.getSetting().showBy(button);
+    },
+
+    onChatButtonTap: function(button, e, eOpts) {
+
+    },
+
+    onMessageButtonTap: function(button, e, eOpts) {
+
+    },
+
+    OndecreseButtonTap: function(button, e, eOpts) {
+        var dis=this;
+        if(gblfontsize>=14){
+            gblfontsize=gblfontsize-2;
+            dis.getShowBookPnl().setStyle('font-size:'+gblfontsize+'px');
+        }
+    },
+
+    onIncreaseButtonTap: function(button, e, eOpts) {
+            gblfontsize=gblfontsize+2;
+            this.getShowBookPnl().setStyle('font-size:'+gblfontsize+'px');
+    },
+
+    onColor1ButtonTap: function(button, e, eOpts) {
+        this.getShowBookPnl().setStyle('background:#FFF');
+    },
+
+    onColor2ButtonTap: function(button, e, eOpts) {
+        this.getShowBookPnl().setStyle('background:antiquewhite');
+    },
+
+    onColor3ButtonTap: function(button, e, eOpts) {
+        debugger;
+        this.getShowBookPnl().setStyle('background:#000');
+    },
+
+    launch: function() {
+        Ext.getCmp('maincard').setActiveItem(0);
+        gblfontsize=14;
+    }
 
 });
