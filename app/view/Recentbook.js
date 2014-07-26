@@ -13,7 +13,7 @@
  * Do NOT hand edit this file.
  */
 
-Ext.define('eBook.view.Recentbook', {
+Ext.define('eBook.view.RecentBook', {
     extend: 'Ext.Panel',
     alias: 'widget.recentbook',
 
@@ -24,7 +24,7 @@ Ext.define('eBook.view.Recentbook', {
     ],
 
     config: {
-        height: 300,
+        height: 240,
         hidden: true,
         itemId: 'mypanel',
         style: 'background:#FFF;',
@@ -38,27 +38,29 @@ Ext.define('eBook.view.Recentbook', {
         items: [
             {
                 xtype: 'label',
-                html: '<div style="    border: 1px solid;    width: 96%;    margin: 0 auto;    border-radius: 0.3em;    height: 30px;"><img src=\'resources/images/recentbook.png\' style="width: 25px;position: absolute;margin-left: 10px;"/><span style="    margin-left: 45px;    padding: 6px;">Recently Opened Books</span></div>',
+                html: '<div style=" border: 1px solid #ccc;width: 96%;margin: 0 auto;border-radius: 0.4em;height: 35px;"><img src=\'resources/images/recentbook.png\' style="width: 25px;position: absolute;margin-left: 10px;"/><span style="    margin-left: 45px;    padding: 6px;">Recently Opened Books</span></div>',
                 margin: '5 0 0 0',
                 width: '100%'
             },
             {
                 xtype: 'dataview',
-                height: 200,
+                height: 240,
                 id: 'recentbooklist',
                 itemId: 'recentbooklist',
                 margin: '5 0 0 0',
-                width: 260,
+                width: '100%',
+                scrollable: false,
                 itemTpl: [
-                    '<table width="100%">',
-                    '    <tr style=" border: 1px solid;border-radius: 0.3em;">',
-                    '        <td rowspan="2" style="font-size: 15px;padding: 5px 0 5px 10px;"><img src=\'resources/images/book.png\' style="width: 30px;" /></td>',
-                    '        <td>{name},{writer}</td>',
-                    '    </tr>',
-                    '</table>',
+                    '<div style="border: 1px solid #ccc;border-radius: 0.4em;margin-bottom: 2px;height: 35px;width: 90%;margin-left: 15px;">',
+                    '<img src=\'resources/images/book.png\' style="width: 30px;position: absolute;margin-left: 5px;" />',
+                    '    <span style="',
+                    '    padding: 0px 0px 0px 40px;',
+                    '">{name},{writer}</span>',
+                    '</div>',
+                    '',
                     ''
                 ],
-                store: 'ShowBookData'
+                store: 'RecentBookStore'
             }
         ]
     }

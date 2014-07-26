@@ -1,17 +1,10 @@
 Ext.define('eBook.view.ReadBook', {
     extend: 'Ext.Panel',
-    xtype: 'readBook',
+    alias: 'widget.readBook',
+
     config: {
-        layout:'vbox',
-        items: [{
-                xtype:'pdfpanel',
-                flex:1,
-                id:'pdfReaders',
-                src:'',
-                style:{
-                    backgroundColor: '#333'
-                }
-            }
-        ]
+        height: '100%',
+        scrollable: true
     }
+
 });
