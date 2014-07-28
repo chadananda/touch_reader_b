@@ -41,7 +41,11 @@ Ext.define('eBook.controller.MainController', {
             btncolor3: 'button#btncolor3',
             showBookPnl: 'showbook',
             readBookPnl: 'readBook',
-            mainCardctn: 'mainCard'
+            mainCardctn: 'mainCard',
+            showMessageMenu: 'messageMenu',
+            showChatMenu: 'chatMenu',
+            showSearchMenu: 'searchMenu',
+            showContentsMenu: 'contentsMenu'
         },
 
         control: {
@@ -155,17 +159,41 @@ Ext.define('eBook.controller.MainController', {
 
                 }
 
-        this.getMainCardctn().setActiveItem(3);
+        
         this.getBtnrecent().setHidden(false);
         this.getRecentbook().setHidden(true);
+        this.getBtnmenu().setHidden(false);
+        this.getMainCardctn().animateActiveItem(2,{
+                type:'slide',
+                direction:'left'
+            });
     },
 
     onLibraryButtonTap: function(button, e, eOpts) {
-        this.getMainCardctn().setActiveItem(0);
-        this.getBtnrecent().setHidden(true);
+           this.getBtnmenu().setHidden(true);
+            this.getBtnrecent().setHtml('Recently Opened Books');
+            this.getMainCardctn().animateActiveItem(0,{
+                type:'slide',
+                direction:'left'
+            });
+            if(!this.getShowContentsMenu().getHidden()){
+                Ext.Viewport.toggleMenu('left');
+                }
     },
 
     onMenuButtonTap: function(button, e, eOpts) {
+         var menu ;
+        if(!this.getShowContentsMenu())
+            menu= Ext.create('eBook.view.ContentsMenu');
+        else
+            menu = this.getShowContentsMenu();
+
+        Ext.Viewport.setMenu(menu, {
+            side: 'left',
+            reveal: true
+        });
+
+        Ext.Viewport.toggleMenu('left');
 
     },
 
@@ -175,45 +203,99 @@ Ext.define('eBook.controller.MainController', {
     },
 
     onSearchButtonTap: function(button, e, eOpts) {
+        var menu ;
+        if(!this.getShowSearchMenu())
+            menu= Ext.create('eBook.view.SearchMenu');
+        else
+            menu = this.getShowSearchMenu();
 
+        Ext.Viewport.setMenu(menu, {
+            side: 'right',
+            reveal: false
+        });
+
+        Ext.Viewport.toggleMenu('right');
     },
 
     onSettingButtonTap: function(button, e, eOpts) {
-        this.getSetting().showBy(button);
+        var menu ;
+        if(!this.getSetting())
+            menu= Ext.create('eBook.view.Setting');
+        else
+            menu = this.getSetting();
+
+          Ext.Viewport.setMenu(menu, {
+                     side: 'right',
+                     reveal: false
+                 });
+
+        Ext.Viewport.toggleMenu('right');
     },
 
     onChatButtonTap: function(button, e, eOpts) {
+        var menu ;
+        if(!this.getShowChatMenu())
+            menu= Ext.create('eBook.view.ChatMenu');
+        else
+            menu = this.getShowChatMenu();
 
+        Ext.Viewport.setMenu(menu, {
+            side: 'right',
+            reveal: false
+        });
+
+        Ext.Viewport.toggleMenu('right');
     },
 
     onMessageButtonTap: function(button, e, eOpts) {
+        var menu ;
+        if(!this.getShowMessageMenu())
+            menu= Ext.create('eBook.view.MessageMenu');
+        else
+            menu = this.getShowMessageMenu();
 
+        Ext.Viewport.setMenu(menu, {
+            side: 'right',
+            reveal: false
+        });
+
+        Ext.Viewport.toggleMenu('right');
     },
 
     OndecreseButtonTap: function(button, e, eOpts) {
-        var dis=this;
-        if(gblfontsize>=14){
-            gblfontsize=gblfontsize-2;
-            dis.getReadBookPnl().setStyle('font-size:'+gblfontsize+'px');
+                var dis=this;
+        if(this.getMainCardctn().getActiveItem().xtype==='readBook'){
+            if(gblfontsize>=14){
+                gblfontsize=gblfontsize-2;
+                dis.getReadBookPnl().setStyle('font-size:'+gblfontsize+'px');
+            }
         }
+
     },
 
     onIncreaseButtonTap: function(button, e, eOpts) {
-            gblfontsize=gblfontsize+2;
-            this.getReadBookPnl().setStyle('font-size:'+gblfontsize+'px');
+           if(this.getMainCardctn().getActiveItem().xtype==='readBook'){
+                gblfontsize=gblfontsize+2;
+                this.getReadBookPnl().setStyle('font-size:'+gblfontsize+'px');
+            }
     },
 
     onColor1ButtonTap: function(button, e, eOpts) {
-        this.getReadBookPnl().setStyle('background:#FFF');
+      if(this.getMainCardctn().getActiveItem().xtype==='readBook'){
+            this.getReadBookPnl().setStyle('background:#FFF');
+        }
     },
 
     onColor2ButtonTap: function(button, e, eOpts) {
-        this.getReadBookPnl().setStyle('background:antiquewhite');
+       if(this.getMainCardctn().getActiveItem().xtype==='readBook'){
+            this.getReadBookPnl().setStyle('background:antiquewhite');
+        }
     },
 
     onColor3ButtonTap: function(button, e, eOpts) {
-        debugger;
-        this.getReadBookPnl().setStyle('background:#000;coror:#fff');
+        if(this.getMainCardctn().getActiveItem().xtype==='readBook'){
+            this.getReadBookPnl().setStyle('background:#000;coror:#fff');
+        }
     },
 
     launch: function() {
@@ -222,7 +304,6 @@ Ext.define('eBook.controller.MainController', {
         var width= window.innerWidth;
         if(width>768){
             this.getBtnrecent().setMargin('3px 0% 0 30%');
-
         }
         else if(width<=768){
             this.getBtnrecent().setMargin('3px 0% 0 10%');

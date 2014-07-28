@@ -29,6 +29,7 @@ Ext.define('eBook.view.ShowBook', {
             {
                 xtype: 'dataview',
                 flex: '1',
+                style: 'margin-top: 45px;',
                 id: 'booklist',
                 itemTpl: [
                     '<table width="100%">',

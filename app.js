@@ -24,11 +24,12 @@ Ext.application({
         'MainController',
     ],
     models:[
-        'ShowBookData',
+        'ShowBookData','ContentsMenuModel'
     ],
     stores:[
         'ShowBookData',
-         'RecentBookStore'
+         'RecentBookStore',
+         'ContentsMenuStore'
     ],
 
     icon: {
@@ -81,17 +82,19 @@ Ext.application({
             }
             return _results;
         };
-if(Ext.os.deviceType === "Desktop"){
-        if (document.addEventListener) {
-            // IE9, Chrome, Safari, Opera
-            document.addEventListener('mousewheel', mouseWheelHandler, false);
-            // Firefox
-            document.addEventListener('DOMMouseScroll', mouseWheelHandler, false);
-        }
-        else {
-            // IE 6/7/8
-            document.attachEvent('onmousewheel', mouseWheelHandler);
-        }}
+        if(Ext.os.deviceType === "Desktop"){
+                if (document.addEventListener) {
+                    // IE9, Chrome, Safari, Opera
+                    document.addEventListener('mousewheel', mouseWheelHandler, false);
+                    // Firefox
+                    document.addEventListener('DOMMouseScroll', mouseWheelHandler, false);
+                }
+                else {
+                    // IE 6/7/8
+                    document.attachEvent('onmousewheel', mouseWheelHandler);
+                }
+            }
+
         // Initialize the main view
         Ext.Viewport.add(Ext.create('eBook.view.MainCard'));
     },

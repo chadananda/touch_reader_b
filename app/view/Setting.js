@@ -14,7 +14,7 @@
  */
 
 Ext.define('eBook.view.Setting', {
-    extend: 'Ext.Panel',
+    extend: 'Ext.Menu',
     alias: 'widget.setting',
 
     requires: [
@@ -25,14 +25,13 @@ Ext.define('eBook.view.Setting', {
     ],
 
     config: {
-        height: 200,
+        id: '',
         itemId: 'settingpanel',
-        width: 250,
-        hideOnMaskTap: true,
-        modal: true,
+        style: ' background: #fff;margin-top: 46px; ',
+        width: 280,
         layout: {
             type: 'vbox',
-            align: 'center'
+            align: 'start'
         },
         items: [
             {

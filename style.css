@@ -1,11 +1,15 @@
+//*-----------------Font Family----------------*//
+@font-face {
+    font-family: "Arial";
+    font-style: normal;
+    src: url(./resources/fonts/Verdana.ttf); /*if IE */
+}
+
 .x-layout-card-item{
     background:#fff;
 }
-#mainToolbar.x-toolbar-dark{
-    background-color: #EDEDEE;
-        background-image: none;
-    border: none
-}
+
+
 //* Recent button tap css***//
 
 
