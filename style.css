@@ -5,10 +5,33 @@
     src: url(./resources/fonts/Verdana.ttf); /*if IE */
 }
 
+.img_size{
+   height: 25px;
+position: absolute;
+width: 22px;
+border-radius: 0.3em;
+    margin-top: -3px;
+}
+.setting_span{
+padding: 25px;
+color:#3C99FF;
+    font-family: 'Arial';
+font-size: 16px;
+
+}
+#txtSearch .x-field-input {
+    background: #FFF;
+    border:2px solid #ccc;
+    border-radius:0.3em;
+    height: 30px;
+    color:#007AFF;
+}
+#txtSearch .x-clear-icon{
+    background:none !important;
+}
 .x-layout-card-item{
     background:#fff;
 }
-
 
 //* Recent button tap css***//
 

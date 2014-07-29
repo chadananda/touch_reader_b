@@ -17,25 +17,35 @@ Ext.define('eBook.view.MainCard', {
         items: [
             {
                 xtype: 'toolbar',
-                cls: 'main_tool_bar',
                 docked: 'top',
-                hidden: false,
                 id: 'mainToolbar',
-                style: 'background: #fff ;border-bottom:1px solid #ccc;position: absolute;z-index:1;',
+                style: 'background: #fff ;border:none;position: absolute;z-index:1;',
                 width: '100%',
                 items: [
-                    {
+                 {
                         xtype: 'button',
                         id: 'btnbrandingicon',
-                        style: 'background-image:url(resources/images/logo.png);background-size: 40px; background-position: 0px -5px; background-repeat: no-repeat; width: 40px;',
+                        style: 'background-image:url(resources/images/logo.png);background-size: 40px; background-position: 0px -5px; background-repeat: no-repeat; width: 35px;',
                         ui: 'plain'
                     },
                     {
-                        xtype: 'button',
-                        id: 'btnlibrary',
-                        style: 'color: #007aff;height: 32px;margin-top: 8px;border-radius: 1.3em;font-family: Arial; font-size: 23px;',
-                        ui: 'plain',
-                        text: 'Library'
+                        xtype: 'container',
+                        id: 'searchContainer',
+                        width: 130,
+                        layout: 'hbox',
+                        items: [
+                            {
+                                xtype: 'textfield',
+                                id: 'txtSearch',
+                                width: '100%'
+                            },
+                            {
+                                xtype: 'button',
+                                id: 'btnSearch',
+                                style: 'background-image:url(resources/images/search.png);background-size: 20px; background-position: 0px 8px; background-repeat: no-repeat;margin-left: -34px; width: 35px;',
+                                ui: 'plain'
+                            }
+                        ]
                     },
                     {
                         xtype: 'button',
@@ -46,37 +56,47 @@ Ext.define('eBook.view.MainCard', {
                     },
                     {
                         xtype: 'button',
+                        hidden: true,
                         id: 'btnrecent',
-                        style: 'color:#007aff; margin: 0px auto; font-family: \'Arial\'; font-size: 23px;border-radius: 1.3em; width: 300px;height: 32px;font-family: \'Arial\'; font-size: 23px;',
-                        ui: 'plain',
-                        text: 'Recently Opened Books'
-                    },
-                    {
-                        xtype: 'button',
-                        docked: 'right',
-                        id: 'btnsearch',
-                        style: 'background-image:url(resources/images/search.png);background-size: 28px; background-position: 0px 5px; background-repeat: no-repeat;width: 40px;',
+                        style: 'color:#3C99FF; margin: 0px auto; font-family: \'Arial\'; font-size: 23px;border-radius: 1.3em; width: 300px;height: 32px;font-family: \'Arial\'; font-size: 23px;',
                         ui: 'plain'
                     },
                     {
                         xtype: 'button',
                         docked: 'right',
-                        id: 'btnsetting',
-                        style: 'background-image:url(resources/images/setting.png);background-size: 26px; background-position: 6px 4px; background-repeat: no-repeat; width: 40px;;',
+                        id: 'btnsearch',
+                        style: 'background-image:url(resources/images/search.png);background-size: 24px; background-position: 5px; background-repeat: no-repeat; margin-left: 5px;width: 40px;',
                         ui: 'plain'
                     },
                     {
                         xtype: 'button',
                         docked: 'right',
                         id: 'btnchat',
-                        style: 'background-image:url(resources/images/chat.png);background-size: 38px; background-position: 0px -2px; background-repeat: no-repeat;width: 40px;',
+                        style: 'background-image:url(resources/images/chat.png);background-size: 33px; background-position: 0px 1px; background-repeat: no-repeat;width: 40px;',
                         ui: 'plain'
                     },
                     {
                         xtype: 'button',
                         docked: 'right',
                         id: 'btnmessage',
-                        style: 'background-image:url(resources/images/message.png);background-size: 30px; background-position: 1px 50%; background-repeat: no-repeat; width: 40px;',
+                        style: 'background-image:url(resources/images/message.png);background-size: 26px; background-position: 0px 5px; background-repeat: no-repeat; margin-right: -5px;width: 30px;',
+                        ui: 'plain'
+                    },
+                    {
+                        xtype: 'button',
+                        docked: 'right',
+                        hidden: true,
+                        id: 'btnlibrary',
+                        style: 'color: #3C99FF;height: 30px; margin-top: 11px; font-family: Arial; font-size: 23px; width: 66px; margin-right: -4px; padding: 0px',
+                        ui: 'plain',
+                        text: 'Library'
+                    },
+                    {
+                        xtype: 'button',
+                        docked: 'right',
+                        html: '<div style="    margin-top: 8px;"><img src="resources/images/images.jpg" class="img_size" alt="" /><span class="setting_span">Demo</span></div>',
+                        id: 'btnsetting',
+                        style: 'padding: 0px;margin-right: -24px',
                         ui: 'plain'
                     }
                 ]

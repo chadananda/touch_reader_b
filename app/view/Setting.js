@@ -27,7 +27,7 @@ Ext.define('eBook.view.Setting', {
     config: {
         id: '',
         itemId: 'settingpanel',
-        style: ' background: #fff;margin-top: 46px; ',
+        style: ' background: #fff;',
         width: 280,
         layout: {
             type: 'vbox',

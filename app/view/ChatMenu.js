@@ -22,7 +22,7 @@ Ext.define('eBook.view.ChatMenu', {
     ],
 
     config: {
-        style: ' background: #fff;margin-top: 46px;',
+        style: ' background: #fff;',
         width: 250,
         layout: {
             type: 'vbox',
