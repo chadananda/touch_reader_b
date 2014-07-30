@@ -30,7 +30,6 @@ Ext.define('eBook.view.ShowBook', {
                 xtype: 'dataview',
                 flex: 1,
                 id: 'booklist',
-                style: 'margin-top: 55px;',
                 width: '100%',
                 inline: {
                     wrap: true

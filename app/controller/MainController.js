@@ -387,14 +387,16 @@ Ext.define('eBook.controller.MainController', {
         this.getReadBookPnl().setStyle('opacity:100');
     },
     launch: function() {
+        debugger;
         gblfontsize=14;
         var width= window.innerWidth;
         if(width>768){
             this.getBtnrecent().setMargin('3px 0% 0 28%');
-
+            this.getShowBookPnl().getItems().items[0].setStyle('margin-left: 3%;margin-top: 55px');
         }
         else if(width<=768){
             this.getBtnrecent().setMargin('3px 0% 0 0');
+            this.getShowBookPnl().getItems().items[0].setStyle('margin-left: 7%;margin-top: 55px');
         }
         this.getMainCardctn().animateActiveItem(0,{
             type:'slide',
