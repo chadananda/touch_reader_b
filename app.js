@@ -29,7 +29,8 @@ Ext.application({
     stores:[
         'ShowBookData',
          'RecentBookStore',
-         'ContentsMenuStore'
+         'ContentsMenuStore',
+         'RecentLocalStore'
     ],
 
     icon: {
@@ -49,7 +50,7 @@ Ext.application({
         '1536x2008': 'resources/startup/1536x2008.png',
         '1496x2048': 'resources/startup/1496x2048.png'
     },
-
+    taskAutoHide:'',
     launch: function() {
         // Destroy the #appLoadingIndicator element
         Ext.fly('appLoadingIndicator').destroy();

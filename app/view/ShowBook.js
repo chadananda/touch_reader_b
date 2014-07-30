@@ -26,22 +26,30 @@ Ext.define('eBook.view.ShowBook', {
         layout: 'vbox',
         scrollable: true,
         items: [
-            {
+           {
                 xtype: 'dataview',
-                flex: '1',
-                style: 'margin-top: 45px;',
+                flex: 1,
                 id: 'booklist',
+                style: 'margin-top: 55px;',
+                width: '100%',
+                inline: {
+                    wrap: true
+                },
                 itemTpl: [
-                    '<table width="100%">',
-                    '    <tr style="border-bottom: 1px solid #ccc; ">',
-                    '        <td rowspan="2" style="font-size: 15px;padding: 5px 0 5px 10px;"><img src={page} style="width: 60px;" /></td>',
-                    '        <td>',
+                    '<div style="border:1px solid #ccc;margin: 0px 10px;height: 85px;width:300px;">',
+                    '  <table width="100%">',
+                    '    <tr>',
+                    '        <td rowspan="2" style="font-size: 15px;padding: 5px 0 5px 10px;"><img src={page} style="width: 50px;height: 70px;" /></td>',
+                    '        <td style="padding:10px;">',
                     '            <div>Title: {name}</div>',
                     '            <div>Author: {writer}</div>',
                     '            <div>Release Date: {date}</div>',
                     '        </td>',
                     '    </tr>',
                     '</table>',
+                    '</div>',
+                    '',
+                    '',
                     ''
                 ],
                 store: 'ShowBookData'

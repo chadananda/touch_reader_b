@@ -9,12 +9,18 @@ Ext.define('eBook.view.ReadBook', {
             element: 'element',
             tap: function() {
                 if(Ext.getCmp('mainToolbar').getHidden()){
-                    if(task){
-                     task.delay(5000);
-                    }
                    Ext.getCmp('mainToolbar').setHidden(false);
+                   /*----- code for auto hide maintoolbar-------*/
+                    if(eBook.app.taskAutoHide!==""){
+                      eBook.app.taskAutoHide.delay(5000);   
+                    }
+                    
                 }else{
                     Ext.getCmp('mainToolbar').setHidden(true);
+                     /*----- code for auto hide maintoolbar-------*/
+                    if(eBook.app.taskAutoHide!==""){
+                      eBook.app.taskAutoHide.delay(5000);   
+                    }
                 }
                 
                
