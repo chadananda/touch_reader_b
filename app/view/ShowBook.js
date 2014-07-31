@@ -25,7 +25,23 @@ Ext.define('eBook.view.ShowBook', {
     config: {
         layout: 'vbox',
         scrollable: true,
-        items: [
+        items: [/*{
+		       xtype:'carousel',
+			   style:"margin-top:55px;'width:100%;height:60px;",
+			   items: [
+						{
+							html : 'Item 1',
+							style: 'background-color: #5E99CC'
+						},
+						{
+							html : 'Item 2',
+							style: 'background-color: #759E60'
+						},
+						{
+							html : 'Item 3'
+						}
+					]
+		},*/
            {
                 xtype: 'dataview',
                 flex: 1,

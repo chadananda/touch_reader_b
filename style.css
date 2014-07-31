@@ -4,7 +4,10 @@
     font-style: normal;
     src: url(./resources/fonts/Verdana.ttf); /*if IE */
 }
-
+/*---------------------css for text shaddow hide--------------*/
+#txtSearch .x-toolbar .x-field-textarea .x-component-outer, .x-toolbar .x-field-text .x-component-outer, .x-toolbar .x-field-number .x-component-outer, .x-toolbar .x-field-search .x-component-outer{
+ box-shadow:none !important;
+}
 /*-------------------------hide scrol bar css----------*/
 .x-scroll-bar-y.active {
     width: 0px; /*CHANGE: replace width: 6px;*/
@@ -12,7 +15,7 @@
 .txt_enlarge{
     border: 2px solid #929FBD;
     border-radius: 0.3em;
-    height: 35px !important;
+    height: 30px !important;
     color: #3C99FF !important;
     border-right: 0px;
     position:absolute;

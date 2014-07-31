@@ -19,13 +19,13 @@ Ext.define('eBook.view.MainCard', {
                 xtype: 'toolbar',
                 docked: 'top',
                 id: 'mainToolbar',
-                style: 'background: #B7C5E2 ;border:none;position: absolute;z-index:1;',
+                style: 'background: #B7C5E2 ;border:none;position: absolute;z-index:1;height:35px;-webkit-box-shadow: 0px 0px 0px 2px #9BCBFF;',
                 width: '100%',
                 items: [
                  {
                         xtype: 'button',
                         id: 'btnbrandingicon',
-                        style: 'background-image:url(resources/images/logo.png);margin-left: -10px;background-size: 45px; background-position: 0; background-repeat: no-repeat; height: 40px; width: 35px;',
+                        style: 'background-image:url(resources/images/logo.png);margin-top: 3px;margin-left: -10px;background-size: 45px; background-position: 0; background-repeat: no-repeat; height: 40px; width: 35px;',
                         ui: 'plain'
                     },
                     {
