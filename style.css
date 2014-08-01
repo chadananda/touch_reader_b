@@ -12,16 +12,19 @@
 .x-scroll-bar-y.active {
     width: 0px; /*CHANGE: replace width: 6px;*/
 }
+
+.x-toolbar{
+    min-height: 38px;
+}
 .txt_enlarge{
     border: 2px solid #929FBD;
     border-radius: 0.3em;
     height: 30px !important;
     color: #3C99FF !important;
-    border-right: 0px;
     position:absolute;
     right:0px;
     top:0px;
-    background: #fff !imporatent;
+    background: #fff !important;
     z-index: 1;
     font-family: 'Arial';
 }

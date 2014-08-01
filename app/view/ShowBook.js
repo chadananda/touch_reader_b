@@ -23,26 +23,76 @@ Ext.define('eBook.view.ShowBook', {
     ],
 
     config: {
+         style: 'margin-top: 55px;',
         layout: 'vbox',
-        scrollable: true,
-        items: [/*{
-		       xtype:'carousel',
-			   style:"margin-top:55px;'width:100%;height:60px;",
-			   items: [
-						{
-							html : 'Item 1',
-							style: 'background-color: #5E99CC'
-						},
-						{
-							html : 'Item 2',
-							style: 'background-color: #759E60'
-						},
-						{
-							html : 'Item 3'
-						}
-					]
-		},*/
-           {
+        scrollable:{
+            direction:'vartical',
+            directionLock:true
+        } ,
+        items: [{
+                xtype: 'panel',
+                height: 180,
+                style: 'border:1px solid #ccc;margin:0 auto;',
+                width: '98%',
+                layout: 'hbox',
+                scrollable: {
+                    direction: 'horizontal',
+                    directionLock: true
+                },
+                items: [
+                    {
+                        xtype: 'dataview',
+                        height:150,
+                        flex:1,
+                        scrollable: false,
+                        id: 'recentBookDataView',
+                        width: '100%',
+                        inline: {
+                            wrap: false
+                        },
+                        itemTpl: [
+                            '<div><img  style="height: 150px;width: 100px; margin: 5px;" src={page} alt=""  /></div>'
+                        ],
+                        store: 'RecentBookData'
+                    }
+                ]
+            }, {
+                xtype: 'panel',
+                height: 80,
+                margin: '10 0 0 10',
+                style: 'border: 1px groove #EFEFEF;background-color: #EFEFEF;margin:0 auto;',
+                width: '98%',
+                layout: 'hbox',
+                items: [
+                    {
+                        xtype: 'label',
+                        html: 'Filter books by',
+                        margin: '15 0 15 4',
+                        width: '23%'
+                    },
+                    {
+                        xtype: 'textfield',
+                        margin: '15 5 15 0',
+                        style: 'border: 1px groove #EFEFEF;',
+                        width: '23%',
+                        placeHolder: 'Category '
+                    },
+                    {
+                        xtype: 'textfield',
+                        margin: '15 5 15 0',
+                        style: 'border: 1px groove #EFEFEF;',
+                        width: '23%',
+                        placeHolder: 'Authore'
+                    },
+                    {
+                        xtype: 'textfield',
+                        margin: '15 0 15 0',
+                        style: 'border: 1px groove #EFEFEF;',
+                        width: '23%',
+                        placeHolder: 'Name'
+                    }
+                ]
+            },{
                 xtype: 'dataview',
                 flex: 1,
                 id: 'booklist',
@@ -50,6 +100,7 @@ Ext.define('eBook.view.ShowBook', {
                 inline: {
                     wrap: true
                 },
+                 style: 'margin-top:10px;',
                 itemTpl: [
                     '<div style="border:1px solid #ccc;margin: 0px 10px;height: 85px;width:300px;">',
                     '  <table width="100%">',

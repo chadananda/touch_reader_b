@@ -42,6 +42,7 @@ Ext.define('eBook.view.Setting', {
                 xtype: 'container',
                 width: 250,
                 layout: 'hbox',
+                style: 'margin-top: 15px;',
                 items: [
                     {
                         xtype: 'button',
@@ -61,11 +62,13 @@ Ext.define('eBook.view.Setting', {
             },
             {
                 xtype: 'label',
-                html: 'Color'
+                html: 'Color',
+                style: 'margin-top: 15px;'
             },
             {
                 xtype: 'container',
                 layout: 'hbox',
+                style: 'margin-top: 15px;',
                 items: [
                     {
                         xtype: 'button',
@@ -92,7 +95,8 @@ Ext.define('eBook.view.Setting', {
             },
             {
                 xtype: 'label',
-                html: 'Audio'
+                html: 'Audio',
+                style: 'margin-top: 15px;'
             },
             {
                 xtype: 'sliderfield',
